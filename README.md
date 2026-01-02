@@ -9,7 +9,7 @@ This flow was heavily based on the video flow by Primal Curve (https://gist.gith
 Please note that this flow will frequently remove all subtitle files on older codecs - this seems unfortunately necessary for the transcoding to work. 
 
 ## Installation guide
-*You need both the flows in the repository for these flows to function* 
+**You need both the flows in the repository for these flows to function**.
 Copy and paste each into the import JSON section of the flows. You will need to add your own api information and the location of your sonarr/radarr server if you want to have this functionality - otherwise just delete or disable these modules in the flow. 
 
 Create a library and set the "HEVC (Balanced Quality) + AAC (256k) Flow" as the transcode method. 
