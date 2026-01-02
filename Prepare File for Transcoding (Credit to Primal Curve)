@@ -1,0 +1,384 @@
+{
+  "_id": "85hiIabZc",
+  "name": "Prepare File for Transcoding (Primal Curve)",
+  "description": "Prepare File for Transcoding (Primal Curve)",
+  "tags": "",
+  "flowPlugins": [
+    {
+      "name": "Remove Image Streams",
+      "sourceRepo": "Community",
+      "pluginName": "ffmpegCommandRemoveStreamByProperty",
+      "version": "1.0.0",
+      "inputsDB": {
+        "valuesToRemove": "png,mjpeg"
+      },
+      "fpEnabled": true,
+      "id": "roRmiVtTI",
+      "position": {
+        "x": 661.7866620369294,
+        "y": 491.9557699783512
+      }
+    },
+    {
+      "name": "Start",
+      "sourceRepo": "Community",
+      "pluginName": "ffmpegCommandStart",
+      "version": "1.0.0",
+      "fpEnabled": true,
+      "id": "4Swd6qzvc",
+      "position": {
+        "x": 661.911133189635,
+        "y": 348.166213255269
+      }
+    },
+    {
+      "name": "Execute",
+      "sourceRepo": "Community",
+      "pluginName": "ffmpegCommandExecute",
+      "version": "1.0.0",
+      "fpEnabled": true,
+      "id": "450g167D8",
+      "position": {
+        "x": 661.7385023116697,
+        "y": 539.3632222485116
+      }
+    },
+    {
+      "name": "Remove Data Streams",
+      "sourceRepo": "Community",
+      "pluginName": "ffmpegCommandRemoveDataStreams",
+      "version": "1.0.0",
+      "fpEnabled": true,
+      "id": "VgAHOXZNT",
+      "position": {
+        "x": 661.7883613472558,
+        "y": 443.9551236997454
+      }
+    },
+    {
+      "name": "Reorder Streams",
+      "sourceRepo": "Community",
+      "pluginName": "ffmpegCommandRorderStreams",
+      "version": "1.0.0",
+      "fpEnabled": true,
+      "id": "mWYj7z2H4",
+      "position": {
+        "x": 661.7347869130355,
+        "y": 396.7286909501814
+      }
+    },
+    {
+      "name": "Return to Transcoding",
+      "sourceRepo": "Community",
+      "pluginName": "goToFlow",
+      "version": "2.0.0",
+      "inputsDB": {
+        "flowId": "bq7X9mK2p",
+        "pluginId": "scwrtORfS"
+      },
+      "fpEnabled": true,
+      "id": "iKjbZVv8X",
+      "position": {
+        "x": 661.8131854591576,
+        "y": 589.3680024080919
+      }
+    },
+    {
+      "name": "Run Migz1Remux Force Conform MKV Classic Transcode Plugin",
+      "sourceRepo": "Community",
+      "pluginName": "runClassicTranscodePlugin",
+      "version": "2.0.0",
+      "inputsDB": {
+        "pluginSourceId": "Community:Tdarr_Plugin_MC93_Migz1Remux",
+        "force_conform": "true"
+      },
+      "fpEnabled": true,
+      "id": "6rP4tO1DG",
+      "position": {
+        "x": 661.302484306315,
+        "y": 132.67444990434745
+      }
+    },
+    {
+      "name": "Incoming File Needs Additional Transcoding Preparation",
+      "sourceRepo": "Community",
+      "pluginName": "comment",
+      "version": "1.0.0",
+      "fpEnabled": true,
+      "id": "0OZi8u1PI",
+      "position": {
+        "x": 636.0368073046328,
+        "y": -463.6618705294432
+      }
+    },
+    {
+      "name": "Check File Extension",
+      "sourceRepo": "Community",
+      "pluginName": "checkFileExtension",
+      "version": "1.0.0",
+      "inputsDB": {
+        "extensions": "mkv"
+      },
+      "fpEnabled": true,
+      "id": "tR0Ca-D8m",
+      "position": {
+        "x": 636.2312405818196,
+        "y": -395.9281188452723
+      }
+    },
+    {
+      "name": "Run Dr Pepper Shaker Extract Subs to SRT Classic Plugin",
+      "sourceRepo": "Community",
+      "pluginName": "runClassicTranscodePlugin",
+      "version": "2.0.0",
+      "inputsDB": {
+        "pluginSourceId": "Community:Tdarr_Plugin_rr01_drpeppershaker_extract_subs_to_SRT",
+        "remove_subs": "yes"
+      },
+      "fpEnabled": true,
+      "id": "_JNLEycZQ",
+      "position": {
+        "x": 347.19480532456805,
+        "y": -239.97055179692194
+      }
+    },
+    {
+      "name": "File is MKV. Extracting Subtitles to prevent potential compatibility issues.",
+      "sourceRepo": "Community",
+      "pluginName": "comment",
+      "version": "1.0.0",
+      "fpEnabled": true,
+      "id": "gMNFk8Epf",
+      "position": {
+        "x": 347.25043051379,
+        "y": -320.2079573847949
+      }
+    },
+    {
+      "name": "Migz1Remux Force Conform MKV Processed File",
+      "sourceRepo": "Community",
+      "pluginName": "comment",
+      "version": "1.0.0",
+      "fpEnabled": true,
+      "id": "M4NPjP2H0",
+      "position": {
+        "x": 583.4345621026112,
+        "y": 233.8389273155924
+      }
+    },
+    {
+      "name": "Migz1Remux Force Conform MKV DID NOT Process File (potentially file is already MKV)",
+      "sourceRepo": "Community",
+      "pluginName": "comment",
+      "version": "1.0.0",
+      "fpEnabled": true,
+      "id": "9z4_DSoi8",
+      "position": {
+        "x": 743.5261228413041,
+        "y": 233.80407960244497
+      }
+    },
+    {
+      "name": "Begin Command",
+      "sourceRepo": "Community",
+      "pluginName": "ffmpegCommandStart",
+      "version": "1.0.0",
+      "fpEnabled": true,
+      "id": "TuG01Vs0c",
+      "position": {
+        "x": 489.6129933331557,
+        "y": -58.03025449870769
+      }
+    },
+    {
+      "name": "Remove Subtitles",
+      "sourceRepo": "Community",
+      "pluginName": "ffmpegCommandRemoveSubtitles",
+      "version": "1.0.0",
+      "fpEnabled": true,
+      "id": "lsZC58syG",
+      "position": {
+        "x": 489.6129933331558,
+        "y": -8.532848729547482
+      }
+    },
+    {
+      "name": "Execute",
+      "sourceRepo": "Community",
+      "pluginName": "ffmpegCommandExecute",
+      "version": "1.0.0",
+      "fpEnabled": true,
+      "id": "nI7XeQpsv",
+      "position": {
+        "x": 489.6129933331557,
+        "y": 42.75577525220359
+      }
+    },
+    {
+      "name": "Dr Pepper didn't extract any subtitles. Removing any that may exist that it couldn't convert or detect.",
+      "sourceRepo": "Community",
+      "pluginName": "comment",
+      "version": "1.0.0",
+      "fpEnabled": true,
+      "id": "0kcG0u2mK",
+      "position": {
+        "x": 489.6129933331557,
+        "y": -139.4218757651281
+      }
+    },
+    {
+      "name": "Dr Pepper processed the file. Continuing.",
+      "sourceRepo": "Community",
+      "pluginName": "comment",
+      "version": "1.0.0",
+      "fpEnabled": true,
+      "id": "r7ljoyg-O",
+      "position": {
+        "x": 322.92607357104214,
+        "y": 43.760048522536465
+      }
+    }
+  ],
+  "flowEdges": [
+    {
+      "source": "4Swd6qzvc",
+      "sourceHandle": "1",
+      "target": "mWYj7z2H4",
+      "targetHandle": null,
+      "id": "hjf21d0tZ"
+    },
+    {
+      "source": "VgAHOXZNT",
+      "sourceHandle": "1",
+      "target": "roRmiVtTI",
+      "targetHandle": null,
+      "id": "nJLab7BJp"
+    },
+    {
+      "source": "roRmiVtTI",
+      "sourceHandle": "1",
+      "target": "450g167D8",
+      "targetHandle": null,
+      "id": "bsFJ0_6go"
+    },
+    {
+      "source": "mWYj7z2H4",
+      "sourceHandle": "1",
+      "target": "VgAHOXZNT",
+      "targetHandle": null,
+      "id": "5xGabaNxX"
+    },
+    {
+      "source": "450g167D8",
+      "sourceHandle": "1",
+      "target": "iKjbZVv8X",
+      "targetHandle": null,
+      "id": "5l3EbPUq6"
+    },
+    {
+      "source": "0OZi8u1PI",
+      "sourceHandle": "1",
+      "target": "tR0Ca-D8m",
+      "targetHandle": null,
+      "id": "SNv7EYRfI"
+    },
+    {
+      "source": "tR0Ca-D8m",
+      "sourceHandle": "2",
+      "target": "6rP4tO1DG",
+      "targetHandle": null,
+      "id": "hD9-PjBY6"
+    },
+    {
+      "source": "tR0Ca-D8m",
+      "sourceHandle": "1",
+      "target": "gMNFk8Epf",
+      "targetHandle": null,
+      "id": "8u936aNC0"
+    },
+    {
+      "source": "gMNFk8Epf",
+      "sourceHandle": "1",
+      "target": "_JNLEycZQ",
+      "targetHandle": null,
+      "id": "pNO0ruwff"
+    },
+    {
+      "source": "6rP4tO1DG",
+      "sourceHandle": "2",
+      "target": "9z4_DSoi8",
+      "targetHandle": null,
+      "id": "0DT2ezfJb"
+    },
+    {
+      "source": "6rP4tO1DG",
+      "sourceHandle": "1",
+      "target": "M4NPjP2H0",
+      "targetHandle": null,
+      "id": "R9J1pCqOR"
+    },
+    {
+      "source": "M4NPjP2H0",
+      "sourceHandle": "1",
+      "target": "4Swd6qzvc",
+      "targetHandle": null,
+      "id": "F2FI9i-X2"
+    },
+    {
+      "source": "9z4_DSoi8",
+      "sourceHandle": "1",
+      "target": "4Swd6qzvc",
+      "targetHandle": null,
+      "id": "1dCb8ajpw"
+    },
+    {
+      "source": "_JNLEycZQ",
+      "sourceHandle": "1",
+      "target": "r7ljoyg-O",
+      "targetHandle": null,
+      "id": "clcyl5FDi"
+    },
+    {
+      "source": "r7ljoyg-O",
+      "sourceHandle": "1",
+      "target": "6rP4tO1DG",
+      "targetHandle": null,
+      "id": "VpF1der_6"
+    },
+    {
+      "source": "_JNLEycZQ",
+      "sourceHandle": "2",
+      "target": "0kcG0u2mK",
+      "targetHandle": null,
+      "id": "VyCzRoHO6"
+    },
+    {
+      "source": "0kcG0u2mK",
+      "sourceHandle": "1",
+      "target": "TuG01Vs0c",
+      "targetHandle": null,
+      "id": "_AoHzqZ0Y"
+    },
+    {
+      "source": "TuG01Vs0c",
+      "sourceHandle": "1",
+      "target": "lsZC58syG",
+      "targetHandle": null,
+      "id": "GYC5aWNRo"
+    },
+    {
+      "source": "lsZC58syG",
+      "sourceHandle": "1",
+      "target": "nI7XeQpsv",
+      "targetHandle": null,
+      "id": "3Ag1Et96i"
+    },
+    {
+      "source": "nI7XeQpsv",
+      "sourceHandle": "1",
+      "target": "6rP4tO1DG",
+      "targetHandle": null,
+      "id": "TvTDLeg_n"
+    }
+  ]
+}
